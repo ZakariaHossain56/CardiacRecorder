@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddItem">
+
+
+    <EditText
+        android:id="@+id/tvdate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Date"
+        android:background="#DCF8FB"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+         />
+
+    <EditText
+        android:id="@+id/tvtime"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#DCF8FB"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Time" />
+
+    <EditText
+        android:id="@+id/tvsys"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#DCF8FB"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Systolic Pressure(mm Hg)" />
+
+    <EditText
+        android:id="@+id/tvdias"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#DCF8FB"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Diastolic Pressure(mm Hg)" />
+
+
+    <EditText
+        android:id="@+id/tvrate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#DCF8FB"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Heart Rate(bpm)" />
+
+    <EditText
+        android:id="@+id/tvcomment"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#DCF8FB"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Comment" />
+
+    <Button
+        android:id="@+id/btnsave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Save" />
+
+</LinearLayout>
