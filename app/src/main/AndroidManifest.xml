@@ -27,6 +27,7 @@
         </activity>
         <activity
 
+
             android:name=".SignUpActivity"
             android:exported="false">
             <meta-data
@@ -34,6 +35,8 @@
                 android:value="" />
         </activity>
         <activity
+
+
 
             android:name=".AddItem"
             android:exported="false">
