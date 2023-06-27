@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="0.735" />
 
     <Button
-        android:id="@+id/buttinin"
+        android:id="@+id/buttonin"
         android:layout_width="369dp"
         android:layout_height="50dp"
         android:backgroundTint="#9093A6"
