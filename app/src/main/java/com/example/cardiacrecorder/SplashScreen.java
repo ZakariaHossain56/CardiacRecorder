@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 public class SplashScreen extends AppCompatActivity {
 
 
+
     private ProgressBar progressBar;
 
     @Override

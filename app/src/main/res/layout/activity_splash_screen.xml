@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@color/white"
     tools:context=".SplashScreen">
 
 
+=======
+    android:background="#FFFFFF"
+    tools:context=".SplashScreen">
+
+>>>>>>> master
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -22,12 +28,21 @@
         app:layout_constraintVertical_bias="0.809" />
 
     <com.airbnb.lottie.LottieAnimationView
+<<<<<<< HEAD
         android:layout_width="wrap_content"
         android:layout_height="300dp"
+=======
+        android:layout_width="255dp"
+        android:layout_height="224dp"
+>>>>>>> master
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
+=======
+        app:layout_constraintVertical_bias="0.396"
+>>>>>>> master
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/heartblack" />
