@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
 public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderRecord> implements Filterable  {
 
     private Context context;
@@ -36,6 +37,14 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
     }
 
 
+    /**
+     *
+     * @param parent
+     * Viewgroup
+     * @param viewType
+     * viewType
+     * @return
+     */
 
     @NonNull
     @Override

@@ -4,6 +4,8 @@ import android.widget.Filter;
 
 import java.util.ArrayList;
 
+
+
 public class FilterRecord extends Filter {
 
     private AdapterRecord adapter;
@@ -13,6 +15,8 @@ public class FilterRecord extends Filter {
         this.adapter = adapter;
         this.filterlist = filterlist;
     }
+
+
 
     @Override
     protected FilterResults performFiltering(CharSequence constraint) {
@@ -41,6 +45,8 @@ public class FilterRecord extends Filter {
 
         return results;
     }
+
+
 
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
