@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView RecyclerViewRecord;
     private AdapterRecord adapterRecord;
     private ArrayList<single_record>reclist;
+    private EditText searchbar;
 
     FloatingActionButton btnadd;
     @Override
@@ -40,12 +44,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnadd=findViewById(R.id.btnadd);
         RecyclerViewRecord=findViewById(R.id.RecyclerViewRecord);
+        searchbar=findViewById(R.id.searchbar);
         loadrec();
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,AddItem.class);
                 startActivity(intent);
+            }
+        });
+
+
+
+        //shama--filter
+
+
+        searchbar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try{
+                    adapterRecord.getFilter().filter(s);
+
+
+                }catch(Exception e)
+                {
+                    e.printStackTrace();
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
     }
@@ -76,6 +112,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
 
 
     private void loadrec() {

@@ -4,13 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3D4481"
     tools:context=".MainActivity">
 
 
+    <EditText
+        android:id="@+id/searchbar"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:drawableLeft="@drawable/ic_baseline_search_24"
+        android:hint="Search by Date (ex 02/02/2020)"
+        android:paddingLeft="10dp" />
 
-<ScrollView
+    <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/searchbar">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
