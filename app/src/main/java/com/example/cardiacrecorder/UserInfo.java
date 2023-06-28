@@ -5,8 +5,8 @@ public class UserInfo {
     String name;
     String phone;
     String email;
-    float height;
-    float weight;
+    String height;
+    String weight;
 
     public String getUserid() {
         return userid;
@@ -40,19 +40,19 @@ public class UserInfo {
         this.email = email;
     }
 
-    public float getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public float getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 }

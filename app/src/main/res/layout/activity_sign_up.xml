@@ -145,8 +145,47 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.757" />
+
+    <EditText
+        android:id="@+id/height"
+        android:layout_width="163dp"
+        android:layout_height="54dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="height(m)"
+        android:inputType="numberDecimal"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="#5E5B5B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="148dp"
+        android:layout_height="54dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="weight(kg)"
+        android:inputType="numberDecimal"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="#5E5B5B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
