@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -65,6 +66,13 @@ public class AddItem extends AppCompatActivity {
                 String heart_rate=tvrate.getText().toString().trim();
                 String comment=tvcomment.getText().toString().trim();
 
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("data").child(mAuth.getUid());
+                DatabaseReference newChildRef = databaseReference.push();
+                String childId = newChildRef.getKey(); // Get the generated unique ID
+
                 Map<String,Object> map=new HashMap<>();
                 map.put("date",date);
                 map.put("time",time);
@@ -72,9 +80,12 @@ public class AddItem extends AppCompatActivity {
                 map.put("dias",diastolic_pressure);
                 map.put("rate",heart_rate);
                 map.put("comment",comment);
+                map.put("UserID",mAuth.getUid());
+                map.put("RecordID",childId);
 
-                DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("data").child("user_id");
-                databaseReference.push().updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                //DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("data").child(mAuth.getUid());
+               // databaseReference.push().updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                newChildRef.updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){

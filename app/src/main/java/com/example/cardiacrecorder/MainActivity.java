@@ -2,6 +2,7 @@ package com.example.cardiacrecorder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,13 +15,22 @@ import android.widget.Button;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private RecyclerView RecyclerViewRecord;
+    private AdapterRecord adapterRecord;
+    private ArrayList<single_record>reclist;
 
     FloatingActionButton btnadd;
     @Override
@@ -29,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btnadd=findViewById(R.id.btnadd);
+        RecyclerViewRecord=findViewById(R.id.RecyclerViewRecord);
+        loadrec();
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,5 +75,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private void loadrec() {
+        reclist = new ArrayList<>();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("data").child(mAuth.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                reclist.clear();
+
+                    for(DataSnapshot dss : snapshot.getChildren())
+                    {
+                        single_record sr= dss.getValue(single_record.class);
+                        reclist.add(sr);
+                    }
+
+
+                adapterRecord=new AdapterRecord(MainActivity.this,reclist);
+                RecyclerViewRecord.setAdapter(adapterRecord);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

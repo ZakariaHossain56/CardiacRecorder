@@ -8,12 +8,19 @@
 
 
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/RecyclerViewRecord"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/single_row">
 
     </androidx.recyclerview.widget.RecyclerView>
+</ScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnadd"
@@ -23,7 +30,8 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="12dp"
-        app:srcCompat="@drawable/add_button" />
+        app:srcCompat="@drawable/add_button"
+       />
 
 
 </RelativeLayout>
