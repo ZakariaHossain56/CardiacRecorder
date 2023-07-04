@@ -14,9 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-
+/**
+ * Adapter for a RecyclerView and specifies the type of ViewHolder it uses (HolderRecord in this case).
+ * Also implements the Filterable interface, allowing the adapter to support filtering of the data.
+ */
 public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderRecord> implements Filterable  {
 
+
+    /**
+     * Member variables context, RecordList, filterlist, and fild (filter) to manage the data and
+     * perform filtering operations.
+     */
     private Context context;
     public ArrayList<single_record> RecordList,filterlist;
     private FilterRecord fild;
@@ -25,11 +33,19 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
     String systolic,diastolic,heart,date,time;
 
 
-    //getter-setter-constructor
+
     public void setRecordList(ArrayList<single_record> RecordList) {
         this.RecordList = RecordList;
     }
 
+
+    /**
+     *   /
+     * Initializes the member variables and assigns the provided data (recordList)
+     * to the RecordList and filterlist ArrayLists.
+     * @param context
+     * @param recordList
+     */
     public AdapterRecord(Context context, ArrayList<single_record> recordList) {
         this.context = context;
         this.RecordList = recordList;
@@ -38,14 +54,11 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
 
 
     /**
-     *
+     * The onCreateViewHolder method is responsible for inflating the layout for each item in the RecyclerView.
      * @param parent
-     * Viewgroup
      * @param viewType
-     * viewType
      * @return
      */
-
     @NonNull
     @Override
     public HolderRecord onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -54,6 +67,13 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
         return new HolderRecord(view);
     }
 
+    /**
+     * The onBindViewHolder method is called for each item in the RecyclerView to bind the data
+     * to the views in the ViewHolder. It retrieves the data for the current position and sets it
+     * to the respective TextViews.
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull HolderRecord holder, int position) {
 
@@ -67,14 +87,18 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
 
 
 
-        holder.SystolicTV.setText("Systolic Pressure : "+sp);
-        holder.DiastolicTV.setText("Diastolic Pressure : "+dp);
-        holder.heartTV.setText("Heart Rate : " +hr);
+        holder.SystolicTV.setText("Systolic Pressure : "+sp+ "mm Hg");
+        holder.DiastolicTV.setText("Diastolic Pressure : "+dp+"mm Hg");
+        holder.heartTV.setText("Heart Rate : " +hr+"bpm");
         holder.DateTV.setText("Date : "+date);
         holder.TimeTV.setText("Time : "+time);
 
 
-
+        /**
+         * The onBindViewHolder method also sets an OnClickListener on each item,
+         * which opens a new activity (RecordDetailsActivity) when the item is clicked.
+         * It passes some data to the new activity using intent extras.
+         */
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,20 +123,33 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
 
     }
 
+    /**
+     * The getItemCount method returns the total number of items in the data list.
+     * @return
+     */
     @Override
     public int getItemCount() {
         return RecordList.size();
     }
 
+    /**
+     * The getFilter method is implemented to support filtering of the data.
+     * It checks if the filter instance (fild) is null and creates a new instance if it is.
+     * @return
+     */
     @Override
     public Filter getFilter() {
         if(fild==null){
             fild= new FilterRecord(this,filterlist);
-
         }
         return fild;
     }
 
+
+    /**
+     * The HolderRecord class is a ViewHolder that holds references to the views in a single item layout.
+     * It extends RecyclerView.ViewHolder and initializes the TextViews in its constructor.
+     */
     class HolderRecord extends RecyclerView.ViewHolder{
 
         private TextView SystolicTV,DiastolicTV,heartTV,DateTV,TimeTV;
