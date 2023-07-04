@@ -16,13 +16,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class RecordDetailsActivity extends AppCompatActivity {
     String REC,USER;
    private EditText delsys,deldias,delrate,deldate,deltime,delcomment;
     private Button delererec,editrec;
 
 
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

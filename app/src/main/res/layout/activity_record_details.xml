@@ -135,6 +135,8 @@
         android:layout_width="95dp"
         android:layout_height="43dp"
         android:text="systolic"
+        android:gravity="center"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
