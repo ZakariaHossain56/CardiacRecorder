@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.1.0'
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation 'com.google.firebase:firebase-auth:20.0.0'
+    implementation fileTree(dir: 'D:\\SDK\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
 
     //implementation fileTree(dir: 'C:\\Users\\ASUS\\AppData\\Local\\Android\\Sdk\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
     //implementation fileTree(dir: 'C:\\Users\\ASUS\\AppData\\Local\\Android\\Sdk\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
