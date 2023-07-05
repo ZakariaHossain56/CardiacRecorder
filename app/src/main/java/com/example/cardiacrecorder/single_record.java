@@ -11,6 +11,21 @@ public class single_record {
     String UserID;
     String RecordID;
 
+
+    public single_record() {
+    }
+
+    public single_record(String date, String time, String sys, String dias, String rate, String comment, String userID, String recordID) {
+        this.date = date;
+        this.time = time;
+        this.sys = sys;
+        this.dias = dias;
+        this.rate = rate;
+        this.comment = comment;
+        UserID = userID;
+        RecordID = recordID;
+    }
+
     public String getDate() {
         return date;
     }

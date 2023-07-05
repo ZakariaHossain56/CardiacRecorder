@@ -8,6 +8,18 @@ public class UserInfo {
     String height;
     String weight;
 
+    public UserInfo() {
+    }
+
+    public UserInfo(String userid, String name, String phone, String email, String height, String weight) {
+        this.userid = userid;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.height = height;
+        this.weight = weight;
+    }
+
     public String getUserid() {
         return userid;
     }
