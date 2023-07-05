@@ -37,6 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText searchbar;
 
     FloatingActionButton btnadd;
+
+    /**
+     * In the onCreate method, the layout for this activity is set using the setContentView method,
+     * which inflates the XML layout file (R.layout.activity_main).
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         //shama--filter
+
+
 
 
         searchbar.addTextChangedListener(new TextWatcher() {
@@ -86,20 +94,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+
+    /**
+     * Callback method to be invoked when a view is clicked.
+     *
+     * @param v The view that was clicked.
+     */
     @Override
     public void onClick(View v) {
 
     }
 
 
-    //shama
     //for sign out
+
+    /**
+     * Initialize the contents of the Activity's standard options menu.
+     *
+     * @param menu The options menu in which you place your items.
+     * @return True for the menu to be displayed, false otherwise.
+     */
+
+
+
     @Override
     public boolean onCreateOptionsMenu (Menu menu)
     {
         getMenuInflater().inflate(R.menu.logoutmenu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
+    /**
+     * This method is called whenever an item in the options menu is selected.
+     *
+     * @param item The menu item that was selected.
+     * @return True if the item was handled, false otherwise.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.LogOutMenuId)
@@ -116,6 +147,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    /**
+     * Load the records from the Firebase Realtime Database and populate the RecyclerView.
+     */
 
 
 
