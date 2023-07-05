@@ -3,6 +3,7 @@ package com.example.cardiacrecorder;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -109,6 +110,8 @@ public class AddItem extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(AddItem.this, "Saved", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(AddItem.this,MainActivity.class);
+                            startActivity(intent);
                         }
                         else{
                             Toast.makeText(AddItem.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();

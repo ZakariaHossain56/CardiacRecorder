@@ -11,7 +11,10 @@ public class single_record {
     String UserID;
     String RecordID;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> zakaria
     public single_record() {
     }
 
