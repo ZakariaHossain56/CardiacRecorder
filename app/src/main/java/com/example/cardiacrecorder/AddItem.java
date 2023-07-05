@@ -28,6 +28,12 @@ public class AddItem extends AppCompatActivity {
     EditText tvsys,tvdias,tvrate,tvcomment;
     Button btnsave;
 
+    /**
+     * entry point of this activity
+     * called when activity is created
+     * sets content view to the layout defined
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +74,9 @@ public class AddItem extends AppCompatActivity {
         tvtime.setOnClickListener(view -> timePicker.show(getSupportFragmentManager(),"Time picker"));
 
 
-
+        /**
+         * Open corresponding picked dialogues on click
+         */
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,6 +114,13 @@ public class AddItem extends AppCompatActivity {
                 //DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("data").child(mAuth.getUid());
                // databaseReference.push().updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 newChildRef.updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    /**
+                     * It is attached to the update operation to handle the completion of the task.
+                     * If the task is successful, a toast message is displayed indicating that the data is saved,
+                     * and the user is redirected to the MainActivity.
+                     * Otherwise, an error toast message is displayed with the exception message.
+                     * @param task
+                     */
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){

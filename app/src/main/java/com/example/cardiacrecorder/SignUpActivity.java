@@ -133,12 +133,29 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     });
 
 
+                    //
+//                    mAuth.createUserWithEmailAndPassword(email, pass)
+//                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<AuthResult> task) {
+//                                    if (task.isSuccessful()) {
+//                                        sendVerificationEmail();
+//                                    } else {
+//                                        handleSignUpFailure(task.getException());
+//                                    }
+//                                }
+//                            });
+
+                    //
+
+
 
 
                     Toast.makeText(getApplicationContext(), "User Registration Successful", Toast.LENGTH_SHORT).show();
                     finish();//page wont be seen while returning
                     Intent intent= new Intent(SignUpActivity.this, MainActivity.class);
-                    //intent.putExtra("EMAIL_VERIFICATION", email);
+                   // Intent intent= new Intent(SignUpActivity.this, VerificationActivity.class);
+                   // intent.putExtra("EMAIL_VERIFICATION", email);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
 
@@ -171,6 +188,30 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
     }
+
+    private void handleSignUpFailure(Exception exception) {
+        Toast.makeText(this, "Email Verification Failed", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void sendVerificationEmail() {
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null) {
+            user.sendEmailVerification()
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(SignUpActivity.this, "Verification email sent", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(SignUpActivity.this, "Failed to send verification email", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
+
 
 
     private void UserRegister()

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,6 +55,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+//        FirebaseUser user = mAuth.getCurrentUser();
+
+//        if (user != null && user.isEmailVerified()) {
+//            // User is signed in and email is verified
+//            // Proceed with the desired action
+//        } else {
+//            // User is either not signed in or email is not verified
+//            // Redirect to a screen to prompt the user to verify their email
+//            Toast.makeText(this, "Email not Verified", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(getApplicationContext(),SignUpActivity.class);
+//            startActivity(intent);
+//        }
+
 
         btnadd=findViewById(R.id.btnadd);
         RecyclerViewRecord=findViewById(R.id.RecyclerViewRecord);
