@@ -15,11 +15,20 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+
+
+
 public class PickDate extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+
 
 
     private final StringListener listener;
 
+    /**
+     * Constructs a new PickDate object with the specified listener.
+     *
+     * @param listener The listener to be notified when a date is selected.
+     */
     public PickDate(StringListener listener){
         this.listener = listener;
     }
@@ -28,6 +37,13 @@ public class PickDate extends DialogFragment implements DatePickerDialog.OnDateS
         void onStringSelected(String value);
     }
 
+
+    /**
+     * Called when the dialog is being created.
+     *
+     * @param savedInstanceState The saved instance state.
+     * @return The created dialog.
+     */
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -41,6 +57,14 @@ public class PickDate extends DialogFragment implements DatePickerDialog.OnDateS
         return new DatePickerDialog(requireContext(), this, year, month, day);
     }
 
+    /**
+     * Called when a date is set in the date picker.
+     *
+     * @param datePicker The date picker view.
+     * @param year The selected year.
+     * @param month The selected month.
+     * @param day The selected day.
+     */
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 

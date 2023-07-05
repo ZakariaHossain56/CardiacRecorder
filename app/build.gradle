@@ -51,7 +51,7 @@ dependencies {
 //    implementation fileTree(dir: 'D:\\SDK\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
 
     //implementation fileTree(dir: 'C:\\Users\\ASUS\\AppData\\Local\\Android\\Sdk\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
-    //implementation fileTree(dir: 'C:\\Users\\ASUS\\AppData\\Local\\Android\\Sdk\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\ASUS\\AppData\\Local\\Android\\Sdk\\platforms\\android-33', include: ['*.aar', '*.jar'], exclude: [])
 
     //for supporting java_8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'

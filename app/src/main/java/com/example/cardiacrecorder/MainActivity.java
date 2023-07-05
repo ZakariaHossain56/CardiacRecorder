@@ -88,13 +88,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //shama--filter
 
 
+        /**
+         *Searchbar to search any record by date
+         * A TextWatcher is created and attached to the searchbar ( an instance of EditText representing the search bar).
+         * The TextWatcher has three overridden methods: beforeTextChanged, onTextChanged, and afterTextChanged.
+         *
+         */
 
 
         searchbar.addTextChangedListener(new TextWatcher() {
+            /**
+             * The beforeTextChanged method is called before the text in the searchbar is changed.
+             *
+             * @param s
+             * @param start
+             * @param count
+             * @param after
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
+
+            /**
+             * The onTextChanged method is called when the text in the searchbar is changed.
+             *  the filter method of the adapterRecord is called, passing the new text s as the filter constraint.
+             *  The adapterRecord has a custom implementation of the Filterable interface.
+             *  which enables filtering of its data based on the provided constraint.
+             *
+             * Any exceptions that occur during the filtering process are caught and printed to the console (using e.printStackTrace()).
+             * @param s
+             * @param start
+             * @param before
+             * @param count
+             */
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -109,6 +136,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
             }
+
+            /**
+             * The afterTextChanged method is called after the text in the searchbar has been changed.
+             * @param s
+             */
 
             @Override
             public void afterTextChanged(Editable s) {

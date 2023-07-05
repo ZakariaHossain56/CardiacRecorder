@@ -7,12 +7,18 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
+
+
 public class SplashScreen extends AppCompatActivity {
 
 
 
     private ProgressBar progressBar;
 
+    /**
+     * Called when the activity is starting. Sets up the UI .
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,10 @@ public class SplashScreen extends AppCompatActivity {
         thread.start();
     }
 
+    /**
+     * Progress bar setup
+     * set the timing for progressbar
+     */
     public void doWork()
     {
         int progress;

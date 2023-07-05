@@ -43,6 +43,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private Button buttonuser;
     EditText height,weight;
 
+
+    /**
+     * Called when the activity is created.
+     *
+     * @param savedInstanceState The saved instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +76,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         buttonuser.setOnClickListener(this);
     }
 
+    /**
+     * Handles click events on the views.
+     *
+     * @param v The view that was clicked.
+     */
     @Override
     public void onClick(View v) {
 
@@ -85,6 +96,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    /**
+     *
+     * Performs registration process.
+     */
+
     private void GeneralReg() {
 
         String email=emailup.getText().toString().trim();
@@ -95,6 +111,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String w=weight.getText().toString().trim();
        // String username=Username.getText().toString().trim();
 
+        /**
+         *
+         */
 
        mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -189,10 +208,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    /**
+     *
+     * @param exception
+     */
     private void handleSignUpFailure(Exception exception) {
         Toast.makeText(this, "Email Verification Failed", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     *
+     */
 
     private void sendVerificationEmail() {
         FirebaseUser user = mAuth.getCurrentUser();
@@ -213,7 +239,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-
+    /**
+     *
+     * Checks input fields
+     */
     private void UserRegister()
     {
         String user=Username.getText().toString().trim();
