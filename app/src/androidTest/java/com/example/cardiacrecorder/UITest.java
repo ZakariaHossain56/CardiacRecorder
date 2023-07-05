@@ -18,15 +18,25 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import org.junit.Rule;
 import org.junit.Test;
 
+/**
+ * UI tests for the application.
+ */
 public class UITest {
     @Rule
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
 
+    /**
+     * Test for verifying the app name is displayed.
+     */
     @Test
     public void testAppName() {
         onView(withText(R.string.app_name)).check(matches(isDisplayed()));
     }
 
+
+    /**
+     * Test for adding data through UI.
+     */
     @Test
     public void addData() {
 
@@ -45,6 +55,10 @@ public class UITest {
 
     }
 
+
+    /**
+     * Test for updating data through UI.
+     */
 
     @Test
     public void updateData() {
@@ -65,6 +79,9 @@ public class UITest {
 
     }
 
+    /**
+     * Test for deleting data through UI.
+     */
     @Test
     public void deleteData() {
         SystemClock.sleep(3000);
