@@ -1,140 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="1dp"
     android:layout_marginTop="5dp"
+    app:cardCornerRadius="40dp"
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
     app:cardElevation="6dp"
     app:contentPadding="5dp">
 
-    <RelativeLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="173dp"
+        android:layout_centerVertical="true"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:id="@+id/SystolicTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Systolic Pressure:"
-                android:textSize="24dp"
-                android:textColor="#04A60C"
-                android:padding="5dp"/>
-
-            <TextView
-                android:id="@+id/DiastolicTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Diastolic Pressure"
-                android:textSize="24dp"
-                android:textColor="#7C1109"
-                android:padding="5dp"/>
-            <TextView
-                android:id="@+id/heartTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Heart Rate"
-                android:textSize="24dp"
-                android:textColor="#1540DA"
-                android:padding="5dp"/>
+        android:orientation="vertical">
 
 
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-
-
-                <TextView
-                    android:id="@+id/DateTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="30dp"
-                    android:text="Date"
-                    android:textSize="20dp"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/TimeTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="20dp"
-                    android:text="Time"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
-                    android:layout_toEndOf="@+id/DateTV"
-                    />
+        <TextView
+            android:id="@+id/SystolicTV"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rectangle_tv"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.219" />
 
 
+        <TextView
+            android:id="@+id/DiastolicTV"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rectangle_tv"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.219" />
 
+        <TextView
+            android:id="@+id/heartTV"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rectangle_tv"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.947"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.219" />
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <ImageButton
-                    android:id="@+id/editbtn"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_mode_edit_24_black"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="80dp"
-                    android:background="#FFFFFF"
-
-
-                    />
-
-                <ImageButton
-                    android:id="@+id/deletebtn"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_delete_24_red"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="80dp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@color/white"
-
-                    />
-
-
-
-
-
-
-
-
-            </RelativeLayout>
-
-        </LinearLayout>
-        <ImageView
+        <TextView
+            android:id="@+id/TimeTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/nextTV"
-            android:scaleType="fitCenter"
-            android:layout_alignParentEnd="true"
-            android:adjustViewBounds="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_baseline_navigate_next_24"/>
+            android:text="Time"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.777"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.89" />
+
+        <TextView
+            android:id="@+id/DateTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.087"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.89" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>

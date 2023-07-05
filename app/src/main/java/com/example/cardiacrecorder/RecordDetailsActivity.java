@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RecordDetailsActivity extends AppCompatActivity {
     String REC,USER;
-   private EditText delsys,deldias,delrate,deldate,deltime,delcomment;
+   private TextView delsys,deldias,delrate,deldate,deltime,delcomment;
     private Button delererec,editrec;
 
 
@@ -42,6 +43,13 @@ public class RecordDetailsActivity extends AppCompatActivity {
         delcomment=findViewById(R.id.delcomment);
         delererec=findViewById(R.id.deleterec);
         editrec=findViewById(R.id.editrec);
+
+        delsys.setText(getIntent().getStringExtra("sys")+" mm Hg");
+        deldias.setText(getIntent().getStringExtra("dias")+" mm Hg");
+        delrate.setText(getIntent().getStringExtra("rate" )+ " bpm");
+        deldate.setText(getIntent().getStringExtra("date"));
+        deltime.setText(getIntent().getStringExtra("time"));
+        delcomment.setText(getIntent().getStringExtra("comment"));
 
 
      

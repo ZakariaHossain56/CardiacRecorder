@@ -87,11 +87,11 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
 
 
 
-        holder.SystolicTV.setText("Systolic Pressure : "+sp+ "mm Hg");
-        holder.DiastolicTV.setText("Diastolic Pressure : "+dp+"mm Hg");
-        holder.heartTV.setText("Heart Rate : " +hr+"bpm");
-        holder.DateTV.setText("Date : "+date);
-        holder.TimeTV.setText("Time : "+time);
+        holder.SystolicTV.setText(sp+ "mm Hg");
+        holder.DiastolicTV.setText(dp+"mm Hg");
+        holder.heartTV.setText(hr+"bpm");
+        holder.DateTV.setText(date);
+        holder.TimeTV.setText(time);
 
 
         /**
@@ -112,6 +112,14 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
                 Intent intent=new Intent(context,RecordDetailsActivity.class);
                 intent.putExtra("USERRRR_UID",userID);
                 intent.putExtra("RECORDDD_UID",userID1);
+
+                intent.putExtra("sys",hm.sys);
+                intent.putExtra("dias",hm.dias);
+                intent.putExtra("rate",hm.rate);
+                intent.putExtra("date",hm.date);
+                intent.putExtra("time",hm.time);
+                intent.putExtra("comment",hm.comment);
+
 //                String s=v.getContext().toString();
 //                Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
