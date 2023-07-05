@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 
+
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -30,6 +32,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView textViewin;
     private Button buttonin;
 
+    /**
+     * Called when the activity is starting. Sets up the UI and initializes Firebase authentication.
+     *
+     * @param savedInstanceState The saved instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +57,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textViewin.setOnClickListener(this);
     }
 
+    /**
+     * Handles the click events for views in the activity.
+     *
+     * @param v The view that was clicked.
+     */
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.buttonin) {
@@ -64,12 +76,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
-
-
-
-
-
+    /**
+     *
+     * Called when the activity is becoming visible to the user. Checks if the user is already authenticated
+     * and redirects to the main activity if so.
+     */
 
     @Override
     public void onStart() {
@@ -90,13 +101,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
-
-
-
-
-
-
+    /**
+     * Performs the login process by validating the user input and attempting to sign in with Firebase authentication.
+     */
 
     private void userlogin() {
 
@@ -140,6 +147,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         //progressbarin.setVisibility(View.VISIBLE);
 
+        /**
+         *
+         */
         mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
            @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

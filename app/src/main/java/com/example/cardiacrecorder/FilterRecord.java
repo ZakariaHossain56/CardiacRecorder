@@ -11,13 +11,24 @@ public class FilterRecord extends Filter {
     private AdapterRecord adapter;
     private ArrayList<single_record> filterlist;
 
+    /**
+     *Constructs a new FilterRecord object.
+     * @param adapter
+     * @param filterlist
+     */
     public FilterRecord(AdapterRecord adapter, ArrayList<single_record> filterlist) {
         this.adapter = adapter;
         this.filterlist = filterlist;
     }
 
 
-
+    /**
+     *Performs the filtering operation on the dataset.
+     *
+     *
+     * @param constraint The constraint to filter the dataset by.
+     * @return  The results of the filtering operation.
+     */
     @Override
     protected FilterResults performFiltering(CharSequence constraint) {
         FilterResults results= new FilterResults();
@@ -47,7 +58,13 @@ public class FilterRecord extends Filter {
     }
 
 
-
+    /**
+     *   Publishes the results of the filtering operation to the adapter.
+     *
+     *
+     * @param constraint  The constraint used for filtering.
+     * @param results shows the result of filtering operation
+     */
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
         adapter.RecordList=(ArrayList<single_record>)results.values;

@@ -43,6 +43,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private Button buttonuser;
     EditText height,weight;
 
+
+    /**
+     * Called when the activity is created.
+     *
+     * @param savedInstanceState The saved instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,12 +76,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         buttonuser.setOnClickListener(this);
     }
 
+    /**
+     * Handles click events on the views.
+     *
+     * @param v The view that was clicked.
+     */
     @Override
     public void onClick(View v) {
 
         if(v.getId()==R.id.buttonuser)
         {
-          UserRegister();
+            UserRegister();
 
         }
         else if (v.getId()==R.id.textViewup){
@@ -85,6 +96,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    /**
+     *
+     * Performs registration process.
+     */
+
     private void GeneralReg() {
 
         String email=emailup.getText().toString().trim();
@@ -93,10 +109,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String user=Username.getText().toString().trim();
         String h=height.getText().toString().trim();
         String w=weight.getText().toString().trim();
-       // String username=Username.getText().toString().trim();
+        // String username=Username.getText().toString().trim();
 
+        /**
+         *
+         */
 
-       mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -104,58 +123,60 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
                 if (task.isSuccessful()) {
-
-
-                    mAuth.getCurrentUser().sendEmailVerification()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-
-                                    if(task.isSuccessful()) {
-                                            UserInfo userData = new UserInfo();
-
-                                            userData.setUserid(mAuth.getUid());
-                                            userData.setName(user);
-                                            userData.setEmail(email);
-                                            userData.setPhone(Phone_no);
-                                            userData.setHeight(h);
-                                            userData.setWeight(w);
-
-                                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UserInfo");
-                                            databaseReference.child(mAuth.getUid()).setValue(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    Toast.makeText(SignUpActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(SignUpActivity.this, "Data NOT Updated", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
-
-
-                                            Toast.makeText(getApplicationContext(), "User Registration Successful", Toast.LENGTH_SHORT).show();
-                                            finish();//page wont be seen while returning
-                                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                                            //intent.putExtra("EMAIL_VERIFICATION", email);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                            startActivity(intent);
-
-                                    }
-
-                                    else{
-
-                                        //                                               Toast.makeText(SignUp.this, "Step3", Toast.LENGTH_SHORT).show();
-
-                                        Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
-                                    }
-
-                                }
-                            });
                     //push Data
+                    UserInfo userData=new UserInfo();
+//                    userData.AccountType="GeneralUser";
+//                    userData.name=user;
+//                    userData.phone=Phone_no;
+//                    userData.email=email;
+//                    userData.userid=mAuth.getUid();
+                    //userData.setAccountType("GeneralUser");
+                    userData.setUserid(mAuth.getUid());
+                    userData.setName(user);
+                    userData.setEmail(email);
+                    userData.setPhone(Phone_no);
+                    userData.setHeight(h);
+                    userData.setWeight(w);
 
+                    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("UserInfo");
+                    databaseReference.child(mAuth.getUid()).setValue(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(SignUpActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SignUpActivity.this, "Data NOT Updated", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+                    //
+//                    mAuth.createUserWithEmailAndPassword(email, pass)
+//                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<AuthResult> task) {
+//                                    if (task.isSuccessful()) {
+//                                        sendVerificationEmail();
+//                                    } else {
+//                                        handleSignUpFailure(task.getException());
+//                                    }
+//                                }
+//                            });
+
+                    //
+
+
+
+
+                    Toast.makeText(getApplicationContext(), "User Registration Successful", Toast.LENGTH_SHORT).show();
+                    finish();//page wont be seen while returning
+                    Intent intent= new Intent(SignUpActivity.this, MainActivity.class);
+                    // Intent intent= new Intent(SignUpActivity.this, VerificationActivity.class);
+                    // intent.putExtra("EMAIL_VERIFICATION", email);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
 
                 }
 
@@ -187,7 +208,41 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    /**
+     *
+     * @param exception
+     */
+    private void handleSignUpFailure(Exception exception) {
+        Toast.makeText(this, "Email Verification Failed", Toast.LENGTH_SHORT).show();
+    }
 
+    /**
+     *
+     */
+
+    private void sendVerificationEmail() {
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null) {
+            user.sendEmailVerification()
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(SignUpActivity.this, "Verification email sent", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(SignUpActivity.this, "Failed to send verification email", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
+
+
+    /**
+     *
+     * Checks input fields
+     */
     private void UserRegister()
     {
         String user=Username.getText().toString().trim();
@@ -290,7 +345,3 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
 }
-
-
-
-

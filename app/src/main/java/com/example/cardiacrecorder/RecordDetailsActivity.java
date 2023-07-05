@@ -20,18 +20,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- *
- */
+
+
 public class RecordDetailsActivity extends AppCompatActivity {
     String REC,USER;
     private TextView delsys,deldias,delrate,deldate,deltime,delcomment,stsys,stdias;
     private Button delererec,editrec;
 
 
+
     /**
+     * Called when the activity is created.
      *
-     * @param savedInstanceState
+     * @param savedInstanceState The saved instance state.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,7 @@ public class RecordDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
         delererec.setOnClickListener(new View.OnClickListener() {
