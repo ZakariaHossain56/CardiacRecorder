@@ -3,8 +3,10 @@ package com.example.cardiacrecorder;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,6 +52,29 @@ public class RecordDetailsActivity extends AppCompatActivity {
         deldate.setText(getIntent().getStringExtra("date"));
         deltime.setText(getIntent().getStringExtra("time"));
         delcomment.setText(getIntent().getStringExtra("comment"));
+
+        editrec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RecordDetailsActivity.this,AddItem.class);
+                intent.putExtra("sys",getIntent().getStringExtra("sys"));
+                intent.putExtra("dias",getIntent().getStringExtra("dias"));
+                intent.putExtra("rate",getIntent().getStringExtra("rate"));
+                intent.putExtra("date",getIntent().getStringExtra("date"));
+                intent.putExtra("time",getIntent().getStringExtra("time"));
+                intent.putExtra("comment",getIntent().getStringExtra("comment"));
+                intent.putExtra("RECORDDD_UID",getIntent().getStringExtra("RECORDDD_UID"));
+                startActivity(intent);
+            }
+        });
+
+
+        delererec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
 
      

@@ -40,6 +40,16 @@ public class AddItem extends AppCompatActivity {
         tvcomment=findViewById(R.id.tvcomment);
         btnsave=findViewById(R.id.btnsave);
 
+        if(getIntent().getStringExtra("sys")!=null){
+            tvsys.setText(getIntent().getStringExtra("sys"));
+            tvdias.setText(getIntent().getStringExtra("dias"));
+            tvrate.setText(getIntent().getStringExtra("rate"));
+            tvdate.setText(getIntent().getStringExtra("date"));
+            tvtime.setText(getIntent().getStringExtra("time"));
+            tvcomment.setText(getIntent().getStringExtra("comment"));
+            btnsave.setText("Update");
+        }
+
         datePicker = new PickDate(value ->{
 
                 //Toast.makeText(this, "Invalid date", Toast.LENGTH_SHORT).show();
@@ -74,6 +84,13 @@ public class AddItem extends AppCompatActivity {
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("data").child(mAuth.getUid());
                 DatabaseReference newChildRef = databaseReference.push();
                 String childId = newChildRef.getKey(); // Get the generated unique ID
+
+                if(getIntent().getStringExtra("sys")!=null){
+                    childId=getIntent().getStringExtra("RECORDDD_UID");
+                    newChildRef=databaseReference.child(getIntent().getStringExtra("RECORDDD_UID"));
+                }
+
+
 
                 Map<String,Object> map=new HashMap<>();
                 map.put("date",date);
