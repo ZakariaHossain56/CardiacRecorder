@@ -38,19 +38,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     FloatingActionButton btnadd;
 
-<<<<<<< HEAD
-    /**
-     * In the onCreate method, the layout for this activity is set using the setContentView method,
-     * which inflates the XML layout file (R.layout.activity_main).
-     * @param savedInstanceState
-     */
-=======
+
     @Override
     public void onBackPressed() {
         finishAffinity();
     }
 
->>>>>>> zakaria
+    /**
+     * In the onCreate method, the layout for this activity is set using the setContentView method,
+     * which inflates the XML layout file (R.layout.activity_main).
+     * @param savedInstanceState
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

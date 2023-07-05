@@ -80,11 +80,7 @@ public class RecordDetailsActivity extends AppCompatActivity {
                 databaseReference.removeValue();
                 finish();
 
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("data")
-                        .child(mAuth.getUid()).child(getIntent().getStringExtra("RECORDDD_UID"));
-                databaseReference.removeValue();
-         finish();
+
 
             }
         });
