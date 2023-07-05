@@ -37,6 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText searchbar;
 
     FloatingActionButton btnadd;
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
