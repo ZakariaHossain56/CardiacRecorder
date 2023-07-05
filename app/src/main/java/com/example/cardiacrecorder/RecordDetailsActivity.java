@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class RecordDetailsActivity extends AppCompatActivity {
     String REC,USER;
-    private TextView delsys,deldias,delrate,deldate,deltime,delcomment;
+    private TextView delsys,deldias,delrate,deldate,deltime,delcomment,stsys,stdias;
     private Button delererec,editrec;
 
 
@@ -47,6 +48,8 @@ public class RecordDetailsActivity extends AppCompatActivity {
         delcomment=findViewById(R.id.delcomment);
         delererec=findViewById(R.id.deleterec);
         editrec=findViewById(R.id.editrec);
+        stsys=findViewById(R.id.stsys);
+        stdias=findViewById(R.id.stdias);
 
         delsys.setText(getIntent().getStringExtra("sys")+" mm Hg");
         deldias.setText(getIntent().getStringExtra("dias")+" mm Hg");
@@ -54,6 +57,37 @@ public class RecordDetailsActivity extends AppCompatActivity {
         deldate.setText(getIntent().getStringExtra("date"));
         deltime.setText(getIntent().getStringExtra("time"));
         delcomment.setText(getIntent().getStringExtra("comment"));
+
+        int sys=Integer.parseInt(getIntent().getStringExtra("sys"));
+        int dias=Integer.parseInt(getIntent().getStringExtra("dias"));
+        if(sys>90 && sys<=140) {
+            stsys.setText("Normal");
+            stsys.setBackgroundColor(Color.GREEN);
+        }
+        else if(sys<90) {
+            stsys.setText("Low");
+            stsys.setBackgroundColor(Color.BLUE);
+            stsys.setTextColor(Color.WHITE);
+        }
+        else if(sys>140) {
+            stsys.setText("High");
+            stsys.setBackgroundColor(Color.RED);
+            stsys.setTextColor(Color.WHITE);
+        }
+        if(dias>=60 && dias<=90){
+            stdias.setText("Normal");
+            stdias.setBackgroundColor(Color.GREEN);
+        }
+        else if(dias<60){
+            stdias.setText("Low");
+            stdias.setBackgroundColor(Color.BLUE);
+            stdias.setTextColor(Color.WHITE);
+        }
+        else if(dias>90){
+            stdias.setText("High");
+            stdias.setBackgroundColor(Color.RED);
+            stdias.setTextColor(Color.WHITE);
+        }
 
         editrec.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -45,37 +45,6 @@ public class VerificationActivity extends AppCompatActivity {
 
     }
 
-   /* private void sendVerificationCode(String email) {
-
-
-        // Firebase Authentication's built-in email sending feature
-        FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(VerificationActivity.this, "A link has been sent to your email", Toast.LENGTH_SHORT).show();
-
-                            FirebaseAuth.getInstance().addAuthStateListener(new FirebaseAuth.AuthStateListener() {
-                                @Override
-                                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                                    if (user != null && user.isEmailVerified()) {
-                                        Toast.makeText(VerificationActivity.this, "Email verified", Toast.LENGTH_SHORT).show();
-                                        textView1.setText("Email Verified");
-
-                                    }
-                                }
-                            });
-                        } else {
-                            Toast.makeText(VerificationActivity.this, "Invalid email address", Toast.LENGTH_SHORT).show();
-                            textView1.setText("Invalid email ");
-                        }
-                    }
-                });
-    }*/
-
-
 
     private void sendVerificationCode(String email) {
         // Generate a 6-digit verification code

@@ -111,38 +111,37 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
 
-                                    if(task.isSuccessful()){
-                                        UserInfo userData=new UserInfo();
+                                    if(task.isSuccessful()) {
+                                            UserInfo userData = new UserInfo();
 
-                                        userData.setUserid(mAuth.getUid());
-                                        userData.setName(user);
-                                        userData.setEmail(email);
-                                        userData.setPhone(Phone_no);
-                                        userData.setHeight(h);
-                                        userData.setWeight(w);
+                                            userData.setUserid(mAuth.getUid());
+                                            userData.setName(user);
+                                            userData.setEmail(email);
+                                            userData.setPhone(Phone_no);
+                                            userData.setHeight(h);
+                                            userData.setWeight(w);
 
-                                        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("UserInfo");
-                                        databaseReference.child(mAuth.getUid()).setValue(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Toast.makeText(SignUpActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(SignUpActivity.this, "Data NOT Updated", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-
-
+                                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UserInfo");
+                                            databaseReference.child(mAuth.getUid()).setValue(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    Toast.makeText(SignUpActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(SignUpActivity.this, "Data NOT Updated", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
 
 
-                                        Toast.makeText(getApplicationContext(), "User Registration Successful", Toast.LENGTH_SHORT).show();
-                                        finish();//page wont be seen while returning
-                                        Intent intent= new Intent(SignUpActivity.this, MainActivity.class);
-                                        //intent.putExtra("EMAIL_VERIFICATION", email);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                        startActivity(intent);
+                                            Toast.makeText(getApplicationContext(), "User Registration Successful", Toast.LENGTH_SHORT).show();
+                                            finish();//page wont be seen while returning
+                                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                                            //intent.putExtra("EMAIL_VERIFICATION", email);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                            startActivity(intent);
+
                                     }
 
                                     else{

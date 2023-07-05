@@ -31,44 +31,44 @@
         android:layout_height="48dp"
         android:layout_margin="20dp"
         android:gravity="center_vertical"
-        android:textSize="20dp"
         android:padding="5dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintHorizontal_bias="0.646"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.219" />
+        app:layout_constraintVertical_bias="0.224" />
 
     <TextView
         android:id="@+id/deldias"
         android:layout_width="120dp"
         android:layout_height="48dp"
         android:layout_margin="20dp"
-        android:padding="5dp"
         android:gravity="center_vertical"
+        android:padding="5dp"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintHorizontal_bias="0.649"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.335" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/delrate"
         android:layout_width="120dp"
         android:layout_height="48dp"
         android:layout_margin="20dp"
-        android:padding="5dp"
         android:gravity="center_vertical"
+        android:padding="5dp"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintHorizontal_bias="0.756"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.446" />
@@ -84,7 +84,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.762"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.547" />
@@ -94,16 +94,16 @@
         android:layout_width="120dp"
         android:layout_height="48dp"
         android:layout_margin="20dp"
-        android:padding="5dp"
         android:gravity="center_vertical"
+        android:padding="5dp"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.762"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663" />
+        app:layout_constraintVertical_bias="0.666" />
 
     <TextView
         android:id="@+id/delcomment"
@@ -143,27 +143,27 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
-        android:text="Systolic Pressure"
-        android:textSize="20dp"
-        android:gravity="start|center_vertical"
         android:layout_marginLeft="20dp"
+        android:gravity="start|center_vertical"
+        android:text="Systolic"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.24" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:gravity="start|center_vertical"
         android:layout_marginLeft="20dp"
-        android:text="Diastolic Pressure"
+        android:text="Diastolic"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -175,7 +175,7 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:foregroundGravity="left"
         android:gravity="start|center_vertical"
@@ -192,7 +192,7 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:gravity="start|center_vertical"
         android:layout_marginLeft="20dp"
@@ -208,7 +208,7 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
         android:gravity="start|center_vertical"
@@ -237,6 +237,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.756" />
+
+    <TextView
+        android:id="@+id/stsys"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:text="TextView"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.236" />
+
+    <TextView
+        android:id="@+id/stdias"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:text="TextView"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.345" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
