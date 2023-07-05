@@ -1,7 +1,6 @@
 package com.example.cardiacrecorder;
 
 
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -29,7 +28,7 @@ public class UITest {
     }
 
     @Test
-    public void addData(){
+    public void addData() {
 
         SystemClock.sleep(3000);
         onView(withId(R.id.btnadd)).perform(click());
@@ -48,7 +47,7 @@ public class UITest {
 
 
     @Test
-    public void updateData(){
+    public void updateData() {
 
         SystemClock.sleep(3000);
         onView(withId(R.id.RecyclerViewRecord)).perform(click());
@@ -67,7 +66,7 @@ public class UITest {
     }
 
     @Test
-    public void deleteData(){
+    public void deleteData() {
         SystemClock.sleep(3000);
         onView(withId(R.id.RecyclerViewRecord)).perform(click());
         onView(withId(R.id.deleterec)).perform(click());
