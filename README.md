@@ -1,11 +1,11 @@
 # Cardiac Recorder
 
-Monitor your blood pressure and heart rate data in a simple, attractive, intuitive mobile app and track this data.
+The CardiacRecorder app is a revolutionary mobile application designed to monitor and track cardiac health in individuals.
 
 ## Objectives
-* To track Systolic and diastolic pressure
-* To track Heart Rate
-* To keep track of data with date and timewise
+* Recording cardiac activity
+* Data analysis and insights
+* User-friendly interface and experience
 
 ## UML Design
 <img src="Images/UML.png">
