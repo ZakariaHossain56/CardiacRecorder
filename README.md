@@ -12,7 +12,7 @@ The CardiacRecorder app is a revolutionary mobile application designed to monito
 
 
 ## Mockup Design
-<img src="https://github.com/ZakariaHossain56/CardiacRecorder/blob/master/Images/Mockup.png">
+<img src="Images/Mockup.png">
 
 
 
